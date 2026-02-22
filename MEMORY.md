@@ -8,4 +8,6 @@
 - **2026-02-23**: Added **Rolling Clean** logic to delete recording files older than 24 hours.
 - **2026-02-23**: Updated `MainActivity` to act as a toggle for the 24/7 recording service.
 - **2026-02-23**: Configured `AndroidManifest.xml` with `FOREGROUND_SERVICE` and `FOREGROUND_SERVICE_MICROPHONE` permissions.
+- **2026-02-23**: **Audit & Fix**: Resolved duplicated manifest entries and service declarations causing build failures. Cleaned up unit tests for `StorageEngine`. 
+- **Status**: Phase 1 is fully implemented, verified, and passing the Gate (tests + build).
 - **Goals**: Move to Phase 2 (Local Intelligence/VAD) and Phase 3 (On-device Whisper).
