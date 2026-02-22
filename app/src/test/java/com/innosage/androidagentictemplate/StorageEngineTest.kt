@@ -49,8 +49,8 @@ class StorageEngineTest {
     fun testGetRecordingFilesReturnsSortedFiles() {
         val storageEngine = StorageEngine(tempFolder.root)
         
-        val file1 = File(tempFolder.root, "rec_1.3gp").apply { createNewFile(); setLastModified(1000) }
-        val file2 = File(tempFolder.root, "rec_2.3gp").apply { createNewFile(); setLastModified(2000) }
+        File(tempFolder.root, "rec_1.3gp").apply { createNewFile(); setLastModified(1000) }
+        File(tempFolder.root, "rec_2.3gp").apply { createNewFile(); setLastModified(2000) }
         
         val files = storageEngine.getRecordingFiles()
         
