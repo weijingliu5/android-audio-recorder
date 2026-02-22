@@ -18,7 +18,17 @@ echo "🔍 Running Lint..."
 echo "🧪 Running Unit Tests..."
 ./gradlew testDebugUnitTest
 
-# 4. Memory Scan (optional)
+# 3.5. Instrumentation (Compose UI) Tests
+if [ "$RUN_COMPOSE_TEST" = "true" ]; then
+    echo "⚡️ Running Compose UI Tests..."
+    ./gradlew connectedDebugAndroidTest
+fi
+
+# 4. Build Assembly
+echo "🏗️ Running Build Assembly..."
+./gradlew assembleDebug
+
+# 5. Memory Scan (optional)
 echo "🧠 Scanning Project Memory..."
 if [ ! -f "MEMORY.md" ]; then
   echo "⚠️ Warning: MEMORY.md not found. Agents must maintain memory."
