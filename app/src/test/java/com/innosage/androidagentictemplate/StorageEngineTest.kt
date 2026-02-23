@@ -16,11 +16,11 @@ class StorageEngineTest {
         val storageEngine = StorageEngine(tempFolder.root)
         
         // Create 3 mock files
-        val oldFile = File(tempFolder.root, "rec_old.3gp").apply { 
+        val oldFile = File(tempFolder.root, "rec_old.pcm").apply { 
             createNewFile()
             setLastModified(System.currentTimeMillis() - 1000 * 60 * 60 * 49) // 49 hours ago
         }
-        val newFile = File(tempFolder.root, "rec_new.3gp").apply { 
+        val newFile = File(tempFolder.root, "rec_new.pcm").apply { 
             createNewFile()
             setLastModified(System.currentTimeMillis()) 
         }
@@ -41,7 +41,7 @@ class StorageEngineTest {
         val file = storageEngine.getNextChunkFile()
         
         assertTrue(file.name.startsWith("rec_"))
-        assertTrue(file.name.endsWith(".3gp"))
+        assertTrue(file.name.endsWith(".pcm"))
         assertEquals(tempFolder.root, file.parentFile)
     }
 
@@ -49,12 +49,12 @@ class StorageEngineTest {
     fun testGetRecordingFilesReturnsSortedFiles() {
         val storageEngine = StorageEngine(tempFolder.root)
         
-        File(tempFolder.root, "rec_1.3gp").apply { createNewFile(); setLastModified(1000) }
-        File(tempFolder.root, "rec_2.3gp").apply { createNewFile(); setLastModified(2000) }
+        File(tempFolder.root, "rec_1.pcm").apply { createNewFile(); setLastModified(1000) }
+        File(tempFolder.root, "rec_2.pcm").apply { createNewFile(); setLastModified(2000) }
         
         val files = storageEngine.getRecordingFiles()
         
         assertEquals(2, files.size)
-        assertEquals("rec_2.3gp", files[0].name) // Descending order
+        assertEquals("rec_2.pcm", files[0].name) // Descending order
     }
 }

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.innosage.androidagentictemplate.AppLaunchTest" tests="1" failures="0" errors="0" skipped="0" time="1.307" timestamp="2026-02-23T01:39:26" hostname="localhost">
+  <properties>
+    <property name="device" value="test_avd(AVD) - 14" />
+    <property name="flavor" value="" />
+    <property name="project" value=":app" />
+  </properties>
+  <testcase name="testAppLaunchAndStartRecording" classname="com.innosage.androidagentictemplate.AppLaunchTest" time="0.857" />
+</testsuite>

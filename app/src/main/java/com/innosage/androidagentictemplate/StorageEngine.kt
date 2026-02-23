@@ -19,7 +19,7 @@ class StorageEngine(private val baseDir: File) {
      */
     fun getNextChunkFile(): File {
         val timestamp = System.currentTimeMillis()
-        return File(baseDir, "rec_$timestamp.3gp")
+        return File(baseDir, "rec_$timestamp.pcm")
     }
 
     /**

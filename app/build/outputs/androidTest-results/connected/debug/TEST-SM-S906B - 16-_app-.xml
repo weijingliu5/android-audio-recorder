@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.innosage.androidagentictemplate.AppLaunchTest" tests="1" failures="0" errors="0" skipped="0" time="2.829" timestamp="2026-02-23T01:39:29" hostname="localhost">
+  <properties>
+    <property name="device" value="SM-S906B - 16" />
+    <property name="flavor" value="" />
+    <property name="project" value=":app" />
+  </properties>
+  <testcase name="testAppLaunchAndStartRecording" classname="com.innosage.androidagentictemplate.AppLaunchTest" time="1.986" />
+</testsuite>

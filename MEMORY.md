@@ -9,5 +9,15 @@
 - **2026-02-23**: Updated `MainActivity` to act as a toggle for the 24/7 recording service.
 - **2026-02-23**: Configured `AndroidManifest.xml` with `FOREGROUND_SERVICE` and `FOREGROUND_SERVICE_MICROPHONE` permissions.
 - **2026-02-23**: **Audit & Fix**: Resolved duplicated manifest entries and service declarations causing build failures. Cleaned up unit tests for `StorageEngine`. 
-- **Status**: Phase 1 is fully implemented, verified, and passing the Gate (tests + build).
-- **Goals**: Move to Phase 2 (Local Intelligence/VAD) and Phase 3 (On-device Whisper).
+- **2026-02-23**: **Phase 2 Completion**: Integrated Voice Activity Detection (VAD) into `AudioRecordService`.
+- **2026-02-23**: Migrated from `MediaRecorder` to low-level `AudioRecord` (PCM 16kHz Mono) to enable real-time audio buffer processing.
+- **2026-02-23**: Implemented RMS-based VAD with a 1-second hangover period to skip writing silence to disk, significantly reducing storage usage.
+- **2026-02-23**: Updated `StorageEngine` and related unit tests to handle `.pcm` files instead of `.3gp`.
+- **2026-02-23**: **VAD Testing Suite**: Extracted VAD logic to `VADProcessor.kt` and implemented a robust test suite in `VADProcessorTest.kt`.
+- **2026-02-23**: Verified VAD behavior against silence, high-amplitude speech, and borderline noise.
+- **2026-02-23**: Validated 1-second hangover logic to ensure continuous recording during brief speech pauses.
+- **Status**: Phase 2 is fully implemented, verified, and unit-tested. The service now captures only voiced segments with stable, non-flaky logic.
+- **2026-02-23**: **Phase 3 Architecture Update**: Refined transcription strategy for multilingual support (English, Mandarin, Cantonese).
+- **2026-02-23**: Selected **Whisper `small` (q8_0)** model over `tiny`/`base` to ensure high accuracy for Chinese dialects. 
+- **2026-02-23**: Defined language handling logic: Default to "Auto-detection" with support for code-switching; Manual override for "Locked" language modes to save compute.
+- **Goals**: Implement Whisper.cpp JNI integration and model loading.
